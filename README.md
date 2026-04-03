@@ -44,8 +44,6 @@ Trigger the workflow within Alfred using your configured keywords.
 - **`syn <word>`** : Search for synonyms of a word.
 - **`ant <word>`** : Search for antonyms of a word.
 
-![Antonym Search Example](docs/antonym_search.png)
-
 ### Part of Speech Filtering
 
 When viewing a large list of synonyms, you can narrow your results down by appending a part-of-speech abbreviation. For example, typing `syn run n` will filter the list to only show **noun** forms of "run".
