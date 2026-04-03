@@ -2,8 +2,6 @@
 
 A fast, zero-dependency Alfred Workflow that retrieves synonyms and antonyms directly from [Thesaurus.com](https://www.thesaurus.com/).
 
-![Icon](icon.png)
-
 ## Features
 
 - **No API limits or keys required**: Parses Thesaurus.com seamlessly.
@@ -31,9 +29,8 @@ A fast, zero-dependency Alfred Workflow that retrieves synonyms and antonyms dir
 - `Shift + Enter` ⇧↵ : Jumps down the rabbit hole and instantly searches Alfred for synonyms/antonyms of the selected word.
 
 ### Filtering by Part of Speech
-You can narrow down your results by appending a part-of-speech shortcut. 
 
-For example, typing `syn run n` will only show **noun** synonyms of "run".
+You can narrow down your results by appending a part-of-speech shortcut. For example, typing `syn run n` will only show **noun** synonyms of "run".
 
 **Supported Shortcuts:**
 - `v` : verb
@@ -44,5 +41,10 @@ For example, typing `syn run n` will only show **noun** synonyms of "run".
 - `pron` : pronoun
 - `conj` : conjunction
 
+## License
+
+This project is open-source and provided under the [MIT License](LICENSE). 
+
 ## Credits
-Icon from Thesaurus.com. All data is retrieved from [Thesaurus.com](https://www.thesaurus.com/). This is an unofficial, open-source workflow and is not affiliated with Dictionary.com, LLC.
+
+All data is retrieved from [Thesaurus.com](https://www.thesaurus.com/). This is an unofficial workflow and is not affiliated with Dictionary.com, LLC.
