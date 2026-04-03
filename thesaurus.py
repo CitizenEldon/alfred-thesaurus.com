@@ -105,11 +105,6 @@ def search_thesaurus(query):
 
     search_type = os.environ.get('SEARCH_TYPE', 'synonyms')
     
-    # Support trailing "ant" modifier if search_type is not already antonyms
-    if word.endswith(" ant") and search_type == 'synonyms':
-        search_type = 'antonyms'
-        word = word[:-4].strip()
-
     url = f"https://www.thesaurus.com/browse/{urllib.parse.quote(word)}"
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'})
     
