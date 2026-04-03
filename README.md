@@ -1,72 +1,85 @@
-# Thesaurus.com Workflow for Alfred
+# 📖 Alfred Thesaurus.com Workflow
 
-A fast, lightweight Alfred Workflow that natively retrieves synonyms and antonyms directly from [Thesaurus.com](https://www.thesaurus.com/), completely free of charge.
+A lightning-fast, zero-dependency Alfred Workflow that retrieves synonyms and antonyms natively from [Thesaurus.com](https://www.thesaurus.com).
 
-## Overview
+Designed for writers, developers, and academics who demand instant vocabulary lookups without the start-up lag of heavy third-party frameworks or API rate limits.
 
-Unlike many dictionary workflows, this tool relies entirely on the standard libraries built into macOS. By bypassing heavy external libraries or paid APIs, this workflow parses Thesaurus.com results instantly. You simply type your command, and the workflow does the rest—even natively managing spelling mistakes and auto-correcting your typos under the hood.
+![Synonym Search Example](docs/synonym_search.png)
 
-![User Configuration Interface](docs/configuration.png)
-*You can configure the keyword triggers and auto-pasting behavior directly within Alfred.*
+---
 
-## Features
+## ✨ Key Features
 
-- **No Third-Party Dependencies:** Built entirely with standard Python 3. This guarantees it opens instantly without the start-up lag associated with heavy external packages.
-- **Auto-Correction Built In:** If you accidentally search for a misspelled word (e.g., `heppy`), the workflow gracefully detects the website's redirect and auto-corrects your results to the closest matching word.
-- **Part of Speech Subtitles:** Synonyms are deeply categorized. A quick glance at the subtitle will tell you exactly whether a word is acting as a noun, verb, or adjective in that context.
-- **Customizable Triggers:** Using Alfred 5's native User Configuration panel, you can remap the `syn` and `ant` keywords to whatever trigger feels most natural to you.
-- **Intelligent Antonyms:** Not just restricted to synonyms—invoke the antonyms search directly or append the `ant` flag to effortlessly view opposites.
+- **Zero External Dependencies:** Built entirely with standard Python 3. It's incredibly lightweight and opens instantly.
+- **Smart Auto-Correction:** Accidental typo? The workflow silently catches redirects behind the scenes and intelligently auto-corrects your results, alerting you in the subtitle.
+- **Deep Lexical Filtering:** Looking for a specific part of speech? Easily filter results to show strictly nouns or verbs with a simple shortcut key.
+- **Configurable Native Settings:** Fully integrates with Alfred 5's Configuration panel, allowing you to remap keywords visually without ever touching a line of code.
 
-## Installation
+<br>
 
-1. Download the latest `Thesaurus.alfredworkflow` from the [Releases](https://github.com/CitizenEldon/alfred-thesaurus.com/releases) page.
-2. Double-click the downloaded file to install it directly into Alfred 5.
+## 🚀 Installation & Setup
 
-*Note: Ensure you have `python3` installed on your Mac (standard with the Xcode Command Line Tools or Homebrew).*
+1. Download the latest `Thesaurus.alfredworkflow` package from the [Releases](https://github.com/CitizenEldon/alfred-thesaurus.com/releases) page.
+2. Double-click the file to install it directly into Alfred. *(Requires Alfred 5+ and Powerpack).*
 
-## Usage Guide
+> [!NOTE] 
+> This workflow acts primarily through macOS standard libraries but requires **Python 3**. Python 3 comes pre-installed on modern macOS environments, Xcode Command Line Tools, or via Homebrew.
 
-To begin utilizing the workflow, open your Alfred window and type the default synonym trigger.
+<br>
 
-### Basic Searching
+## ⚙️ Configuration
 
-- Type `syn {word}` to load a list of synonyms.
-- Type `ant {word}` to load a list of antonyms.
-*(Alternatively, you can instantly search for antonyms by typing `syn {word} ant` without changing your keyword prefix).*
+You can fully customize the workflow's behavior via Alfred's native User Configuration interface:
 
-![Basic Search Example](docs/synonym_search.png)
-*Typing `syn lull` will reveal a diverse list of categorized nouns and verbs.*
+![Alfred Configuration](docs/configuration.png)
 
-### Modifiers & Shortcuts
+| Parameter | Default | Description |
+| :--- | :--- | :--- |
+| **Synonym Trigger** | `syn` | The keyword prefix used to search for synonyms. |
+| **Antonyms Trigger** | `ant` | The keyword prefix used to search for antonyms. |
+| **Auto-paste** | `Enabled` | When hitting Enter, the workflow instantly pastes the selected word into your active window. |
 
-Once your list of words appears, you can press various keyboard modifiers to change what happens when you press Enter:
-- **Enter (↵)** : Automatically copies the selected synonym directly to your clipboard. If the Auto-Paste configuration is enabled, it instantly pastes the word into whichever app you were typing in.
-- **Command + Enter (⌘↵)** : Opens your default web browser and navigates directly to that word's page on Thesaurus.com.
-- **Shift + Enter (⇧↵)** : Jumps down the rabbit hole! Instantly clears the search and triggers Alfred again specifically searching for synonyms of the newly selected word.
+<br>
 
-![Auto-Correction Example](docs/autocorrect_search.png)
-*If you misspell a word, the top subtitle clearly indicates what word it automatically corrected your search to!*
+## ⌨️ Usage Guide
 
-### Filtering by Lexical Category
+Trigger the workflow within Alfred using your configured keywords. 
 
-Occasionally, you only want to look at words that match a specific part of speech. You can narrow down your results by simply appending a part-of-speech abbreviation to the end of your query.
+### Core Commands
 
-**For example**, typing `syn run n` will completely filter the list and only show **noun** synonyms for "run". The workflow supports the following abbreviations:
-- `v` : verb
-- `n` : noun
-- `adj` : adjective
-- `adv` : adverb
-- `prep` : preposition
-- `pron` : pronoun
-- `conj` : conjunction
+* **`syn <word>`** : Search for synonyms of a word.
+* **`ant <word>`** : Search for antonyms of a word. 
+*(Pro-tip: If you're already viewing synonyms, you can quickly append `ant` to the end of your query (e.g., `syn fast ant`) to instantly toggle the list to antonyms).*
 
-![Antonym Filtering](docs/antonym_search.png)
-*Searching for antonyms functions identically to synonyms, maintaining fast and reliable response times.*
+![Antonym Search Example](docs/antonym_search.png)
 
-## License
+### Part of Speech Filtering
 
-This project is open-source and provided freely under the [MIT License](LICENSE). 
+When viewing a large list of synonyms, you can narrow your results down by appending a part-of-speech abbreviation. For example, typing `syn run n` will completely filter the list to only show **noun** forms of "run".
 
-## Legal & Credits
+**Supported Filters:**
+* `v` (verb)
+* `n` (noun)
+* `adj` (adjective)
+* `adv` (adverb)
+* `prep` (preposition)
+* `pron` (pronoun)
+* `conj` (conjunction)
 
-All linguistic data is retrieved directly from [Thesaurus.com](https://www.thesaurus.com/). This project is an unofficial workflow designed for convenience and is generally not affiliated with Dictionary.com, LLC.
+### Action Modifiers
+
+Hit these modifier keys when pressing `Enter` on a selected result to trigger context actions:
+* `Enter` **(↵)** : Copy word to clipboard (and Auto-Paste if configured).
+* `Command + Enter` **(⌘↵)** : Open the word directly on Thesaurus.com in your default browser.
+* `Shift + Enter` **(⇧↵)** : Navigate deeply! This automatically loops back into Alfred, instantly initiating a brand new search for the highlighted word. 
+
+![Auto-Correction Warning Example](docs/autocorrect_search.png)
+*Built-in spelling recovery keeps your research moving rapidly.*
+
+---
+
+## 📜 License & Credits
+
+* Crafted by [Eldon Baines](https://github.com/CitizenEldon).
+* Distributed freely under the [MIT License](LICENSE).
+* Linguistic data is dynamically parsed from [Thesaurus.com](https://www.thesaurus.com). This is an unofficial plugin and is not directly affiliated with Dictionary.com, LLC.
